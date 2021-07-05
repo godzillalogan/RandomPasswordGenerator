@@ -7,9 +7,21 @@ const port = 3000
 app.engine('handlebars',exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
+// setting body-parser,app.use() - 這個方法，規定了不管從哪個路由發送進來的請求，都要先經過 app.use
+//這行程式碼擺放的順序需要在所有路由設定之前。
+app.use(express.urlencoded({ extended: true }))
+
 app.get('/',(req, res) => {
     res.render('index')
 })
+
+app.post('/',(req, res) => {
+    res.render('index')
+    console.log('req.body', req.body)
+})
+
+
+
 
 app.listen(port, ()=>{
     console.log(`Express app listening on port ${port}.`)

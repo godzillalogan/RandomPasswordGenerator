@@ -7,6 +7,8 @@
         <div class="card-body">
           <h5 class="card-title">Random Password Generator <i class="fas fa-key"></i></h5>
           <hr>
+          {{!-- GET 方法，GET 方法來傳送時，傳送的資料會直接出現在網址列上，有資安疑慮 --}}
+          {{!-- 處理資料量較大、或保密性較高的資料時，就會使用 POST 方法 --}}
           <form method="POST" action="/">
             <div class="form-group form-row">
               <label for="length" class="col-md-4 col-form-label">
