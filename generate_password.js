@@ -1,3 +1,9 @@
+//sample a element in collection
+function sample(collection) {
+	let randomIndex = Math.floor(Math.random() * collection.length)
+	return collection[randomIndex]
+}
+
 
 function generatePassword(){
   //define thing user might want
@@ -8,12 +14,12 @@ function generatePassword(){
 
 	//define dummy data
 	const options = {
-		length: '8',
-		// lowercase: 'on',
+		length: '12',
+	  lowercase: 'on',
 		// uppercase: 'on',
 		numbers: 'on',
-		symbols: 'on',
-		excludeCharacters: '012345' 
+		// symbols: 'on',
+		excludeCharacters: '13579' 
 	}
 	//console.log('options', options)
 	//create a collection to store things user picked up
@@ -55,20 +61,15 @@ function generatePassword(){
 		)
 	}
 
-	//filter, includes
-	console.log('collection',collection)
-
-
-	// let lowerCaseArray = lowerCaseLetters.split('')
-    // collection = collection.concat(lowerCaseArray)  //concat可以把兩個陣列相連在一起
-	console.log('collection' , collection)
-	// console.log('collection' , collection)
-	//split
-
-	//removoe things user do not need
-
+	
 	//start generating password
-
+	
+	
+	let password = ''
+	for (let i = 1;i <= options.length; i++){
+		password += sample(collection)
+	}
+	console.log('password', password)
 	//return password
 	console.log('This function will generate password')
 }
