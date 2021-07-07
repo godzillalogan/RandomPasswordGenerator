@@ -1,6 +1,7 @@
 //透過 require 載入 express 和樣板引擎 express-handlebars
 const express = require('express')
 const exphbs = require('express-handlebars')
+const generatePassword = require('./generate_password')
 const app = express()
 const port = 3000
 
@@ -16,8 +17,8 @@ app.get('/',(req, res) => {
 })
 
 app.post('/',(req, res) => {
-    res.render('index')
-    console.log('req.body', req.body)
+    const password = generatePassword(req.body)
+    res.render('index',{password:password})
 })
 
 
